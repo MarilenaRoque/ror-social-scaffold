@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   devise_for :users
 
   get 'requests', to: 'users#requests'
-  resources :users, only: [:index, :show] do
-    resources :friendships, only: [:create, :destroy, :update]
+  resources :friendships, only: [:update, :destroy]
+
+  resources :users, only: [:index, :show, :update] do
+    resources :friendships, only: [:create, :destroy]
   end
   
   resources :posts, only: [:index, :create] do

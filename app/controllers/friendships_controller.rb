@@ -13,7 +13,14 @@ class FriendshipsController < ApplicationController
     end
 
     def update
+      @friendship = Friendship.find(params[:id])
+      @friendship.accepted = true
       
+      if @friendship.save
+        redirect_to users_path, notice: 'Friend request was accepted.'
+      else
+        redirect_to users_path, alert: "Couldn't accept friend request."
+      end
     end
   
   end
