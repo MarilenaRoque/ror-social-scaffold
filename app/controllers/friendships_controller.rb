@@ -11,6 +11,10 @@ class FriendshipsController < ApplicationController
         redirect_to users_path, alert: 'Invite was not sent.'
       end
     end
+
+    def update
+      
+    end
   
   end
   

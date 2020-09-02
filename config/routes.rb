@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  get 'requests', to: 'users#requests'
   resources :users, only: [:index, :show] do
     resources :friendships, only: [:create, :destroy, :update]
   end

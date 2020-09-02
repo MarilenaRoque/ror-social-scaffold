@@ -1,0 +1,12 @@
+<section class="users-section">
+  <ul class="users-list">
+    <% current_user.friend_requests.each do |request| %>
+      <li>
+        Name: <%= request.user.name %>
+        <span class="profile-link"> |
+          Accept
+        </span>
+      </li>
+    <% end %>
+  </ul>
+</section>
