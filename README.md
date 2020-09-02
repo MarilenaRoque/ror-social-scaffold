@@ -7,10 +7,12 @@
 - Ruby v2.7.0
 - Ruby on Rails v5.2.4
 
-## Live Demo
+## Milestones
 
-TBA
+# Milestone 1
 
+- Create ERD to show the assotiations between user, comment, like, post, and friendship entities in the models and db.
+  > Open 'docs/entity-relationship-diagram.png' file to see the ERD
 
 ## Getting Started
 
@@ -37,8 +39,6 @@ Setup database with:
    rails db:migrate
 ```
 
-
-
 ### Usage
 
 Start server with:
@@ -49,19 +49,19 @@ Start server with:
 
 Open `http://localhost:3000/` in your browser.
 
-### Run tests
-
-```
-    rpsec --format documentation
-```
-
-> Tests will be added by Microverse students. There are no tests for initial features in order to make sure that students write all tests from scratch.
-
-### Deployment
-
-TBA
-
 ## Authors
+
+👤 **Marilena Roque**
+
+- Github: [MarilenaRoque](https://github.com/MarilenaRoque)
+- Twitter: [@MariRoq88285995](https://twitter.com/MariRoq88285995)
+- Linkedin: [roquemarilena](https://www.linkedin.com/in/roquemarilena/)
+
+👤 **Emanuel González**
+
+- Github: [@emasdev](https://github.com/emasdev)
+- Twitter: [@elemasss](https://twitter.com/elemass)
+- Linkedin: [@emasdev](https://www.linkedin.com/in/emasdev/)
 
 TBA
 
@@ -82,4 +82,3 @@ TBA
 ## 📝 License
 
 TBA
-
