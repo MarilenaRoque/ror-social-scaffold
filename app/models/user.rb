@@ -19,4 +19,16 @@ class User < ApplicationRecord
     inverse_friendships.where(accepted: nil)
   end
 
+  def friends
+    friendships.where(accepted: true) + inverse_friendships.where(accepted: true)
+  end
+
+  def friends_and_i
+    if !friends.empty?
+      friends.map{ |u| [u.friend_id, u.user_id]}.flatten.uniq
+    else
+      [self.id]
+    end
+  end
+
 end
