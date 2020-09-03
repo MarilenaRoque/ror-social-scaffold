@@ -34,7 +34,6 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 #Capybara
-gem 'capybara'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -50,7 +49,7 @@ end
 
 group :test do
   gem 'rspec'
-  gem "capybara"
+  gem 'capybara', '~> 3.33'
   gem "selenium-webdriver"
 end
 
