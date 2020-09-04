@@ -38,9 +38,7 @@ class User < ApplicationRecord
   end
 
   def friendship(user)
-    friendship_array = []
-    friendships.map {|friendship| friendship_array << friendship if friendship.friend_id == user.id && friendship.user_id == id }
-    friendship_array[0]
+    friendships.find {|friendship| friendship.friend_id == user.id && friendship.user_id == id }
   end
   
 end
