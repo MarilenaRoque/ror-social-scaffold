@@ -34,8 +34,13 @@ class User < ApplicationRecord
 
   def friendship_requested?(user)
     friends_array = friendships.map { |friendship| friendship.friend if !friendship.accepted }
-    friends_array = friends_array + inverse_friendships.map { |friendship| friendship.user if !friendship.accepted }
     friends_array.include?(user)
+  end
+
+  def friendship(user)
+    friendship_array = []
+    friendships.map {|friendship| friendship_array << friendship if friendship.friend_id == user.id && friendship.user_id == id }
+    friendship_array[0]
   end
   
 end
