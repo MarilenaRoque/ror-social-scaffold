@@ -18,6 +18,9 @@ describe 'testing friendship features', type: :feature do
                                        friend_id: @test_user.id,
                                        accepted: nil})
     
+    @post = Post.create!({ user_id: @test_friend_request.id,
+                            content: "Test post from John"})
+    
   end
 
   ## Creating
@@ -37,13 +40,13 @@ describe 'testing friendship features', type: :feature do
     end
 
     it 'users can send a invite for non-friends' do
-      sleep (5)
+      sleep (1)
       click_link 'Invite to friendship'
       expect(page).to have_content 'Invite was successfully sent.'
     end
 
     it 'Message of Peding Request is displayed' do
-      sleep (5)
+      sleep (1)
       click_link 'Invite to friendship'
       expect(page).to have_content 'pending request'
     end
@@ -52,6 +55,25 @@ describe 'testing friendship features', type: :feature do
       expect(page).to have_content 'Accept friendship'
     end
 
+    it 'Accept invitation' do
+      sleep (1)
+      click_link 'Accept friendship'
+      expect(page).to have_content 'Friend request was accepted.'
+    end
+
+    it 'Accept invitation button dissapears if invitation accepted' do
+      sleep (1)
+      click_link 'Accept friendship'
+      expect(page).to_not have_content 'Accept friendship'
+    end
+
+    it 'If friendship was accepted display posts of friends in timeline' do
+      visit 'users'
+      click_link 'Accept friendship'
+      sleep(1)
+      visit 'posts'
+      expect(page).to have_content 'Test post from John'
+    end
 
   end
 end
