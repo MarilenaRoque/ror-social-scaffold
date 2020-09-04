@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
 
   has_many :friendships
-  has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => 'friend_id'
+  has_many :inverse_friendships, class_name: 'Friendship', foreign_key: 'friend_id'
 
   scope :all_except, ->(user) { where.not(id: user.id) }
 
@@ -24,20 +24,11 @@ class User < ApplicationRecord
   end
 
   def friends
-    friends_array = friendships.map{|friendship| friendship.friend if friendship.accepted}
-    friends_array + inverse_friendships.map{|friendship| friendship.user if friendship.accepted}
+    friends_array = friendships.map { |friendship| friendship.friend if friendship.accepted }
+    friends_array + inverse_friendships.map { |friendship| friendship.user if friendship.accepted }
   end
 
   def friend?(user)
-    friends.include?(user) 
+    friends.include?(user)
   end
-
-  def friends_and_i
-    if !friends_relationships.empty?
-      friends_relationships.map{ |u| [u.friend_id, u.user_id]}.flatten.uniq
-    else
-      [self.id]
-    end
-  end
-
 end
