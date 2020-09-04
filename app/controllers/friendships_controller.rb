@@ -22,6 +22,14 @@ class FriendshipsController < ApplicationController
         redirect_to users_path, alert: "Couldn't accept friend request."
       end
     end
-  
+    
+    def destroy
+      @friendship = Friendship.find(params[:id])
+      if @friendship.destroy
+        redirect_to users_path, notice: 'Friendship was rejected.'
+      else
+        redirect_to users_path, alert: "Error rejecting friendship."
+      end
+    end
   end
   
