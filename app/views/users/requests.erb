@@ -4,7 +4,8 @@
       <li>
         Name: <%= request.user.name %>
         <span class="profile-link"> |
-          <%= link_to 'Accept',  friendship_path(request), method: :patch, class: 'profile-link' %>
+          <%= link_to 'Accept',  friendship_path(request), method: :patch, class: 'profile-link' %> |
+          <%= link_to 'Reject',  friendship_path(request), method: :delete, data: { confirm: 'Are you sure?' } , class: 'profile-link' %>
         </span>
       </li>
     <% end %>
