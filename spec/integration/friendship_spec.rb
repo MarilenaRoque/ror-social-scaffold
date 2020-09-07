@@ -75,10 +75,10 @@ describe 'testing friendship features', type: :feature do
     end
 
     it "If friendship exists don't create a new one" do
-      double_friendship = Friendship.create!({ user_id: @test_user.id,
+      @double_friendship = Friendship.create!({ user_id: @test_user.id,
                                        friend_id: @test_friend_request.id,
                                        accepted: nil })
-      expect(double_friendship.save).to_not eq(true)
+      expect(Friendship.find(@double_friendship.id)).to_not eq(true)
     end
   end
 end

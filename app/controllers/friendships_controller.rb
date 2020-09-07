@@ -9,6 +9,7 @@ class FriendshipsController < ApplicationController
       redirect_to users_path, notice: 'Invite was successfully sent.'
     else
       redirect_to users_path, notice: 'The friendship already exist.'
+      @friendship.friend_id = nil
     end
   end
 
