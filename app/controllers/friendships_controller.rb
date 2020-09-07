@@ -4,11 +4,11 @@ class FriendshipsController < ApplicationController
   def create
     @friendship = current_user.friendships.build
     @friendship.friend_id = params[:user_id]
-
-    if @friendship.save
+    if !find(@friendship)
+      @friendship.save
       redirect_to users_path, notice: 'Invite was successfully sent.'
     else
-      redirect_to users_path, alert: 'Invite was not sent.'
+      redirect_to users_path, notice: 'The friendship already exist.'
     end
   end
 
@@ -31,4 +31,9 @@ class FriendshipsController < ApplicationController
       redirect_to users_path, alert: 'Error rejecting friendship.'
     end
   end
+
+  def find(friendship)
+    Friendship.where("user_id = ? AND friend_id = ?", friendship.user_id, friendship.friend_id).or(Friendship.where("user_id = ? AND friend_id = ?", friendship.friend_id, friendship.user_id)).exists?
+  end
+  
 end
