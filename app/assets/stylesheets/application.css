@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+.usertimeline {
+	display: inline-block;
+	padding-right: 15px;
+}
