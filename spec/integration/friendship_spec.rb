@@ -75,7 +75,7 @@ describe 'testing friendship features', type: :feature do
     end
 
     it 'If friendship was accepted create a new row for inverse friendship' do
-      visit 'users' 
+      visit 'users'
       expect { click_link 'Accept friendship' }.to change(Friendship, :count).by(1)
     end
   end
