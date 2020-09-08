@@ -2,6 +2,8 @@
 
 > On this project we forked a prepared repo by Microverse and built additional features to it. The main goal is to show mastering on built and work with many-to-many relationships inside one single table.
 
+## You can access our social media [HERE](https://stormy-ravine-75070.herokuapp.com/)
+
 ![Timeline View](./app/assets/images/screenshot.png)
 
 ## Features Built
